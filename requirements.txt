@@ -1,0 +1,13 @@
+# Núcleo de dados e ML
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.5
+joblib>=1.3
+requests>=2.32
+
+# Deep learning
+tensorflow>=2.16
+
+# Visualização
+matplotlib>=3.8
+seaborn>=0.13
