@@ -63,12 +63,14 @@ confusão e curva ROC.
 
 ```
 exohunter/
+├── app.py                  # dashboard Streamlit
 ├── src/
 │   ├── config.py           # caminhos, features e hiperparâmetros
 │   ├── data_collection.py  # coleta via API TAP da NASA
 │   ├── preprocessing.py    # limpeza, split estratificado, padronização
 │   ├── model.py            # arquitetura da rede neural (Keras)
-│   └── train.py            # treino, avaliação e geração de artefatos
+│   ├── train.py            # treino, avaliação e geração de artefatos
+│   └── predict.py          # classifica todos os KOIs -> predictions.csv
 ├── data/                   # dados brutos/processados (não versionados)
 ├── models/                 # modelos e métricas salvos (não versionados)
 ├── reports/figures/        # gráficos gerados
@@ -82,9 +84,26 @@ exohunter/
 pip install -r requirements.txt   # instalar dependências
 python -m src.data_collection     # baixar os dados da NASA
 python -m src.train               # treinar e avaliar
+python -m src.predict             # classificar todos os KOIs
+streamlit run app.py              # abrir o dashboard
 ```
 
 Artefatos ficam em `models/exoplanet_mlp.keras` e `models/metrics.json`.
+
+## 🖥️ Dashboard
+
+Interface em **Streamlit** (`app.py`) para acompanhar o processo e explorar as
+classificações. Três abas:
+
+- **Visão geral do processo** — distribuição real × classificação do modelo,
+  matriz de confusão, acurácia e AUC.
+- **Planetas classificados** — tabela filtrável (por disposição, classe do
+  modelo, probabilidade e nome), dispersão raio × período e export CSV.
+- **Candidatos promissores** — os candidatos sem veredito que o modelo aponta
+  como prováveis exoplanetas, ordenados por probabilidade.
+
+O dashboard lê apenas os artefatos gerados (`data/processed/predictions.csv`,
+`models/metrics.json`) — não carrega o TensorFlow.
 
 ## 🗺️ Próximos passos
 
