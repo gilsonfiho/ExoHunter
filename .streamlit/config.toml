@@ -1,0 +1,11 @@
+# Tema do dashboard ExoHunter (visual "espacial" escuro)
+[theme]
+base = "dark"
+primaryColor = "#39d98a"
+backgroundColor = "#0b0e17"
+secondaryBackgroundColor = "#161b2e"
+textColor = "#e6e9f0"
+font = "sans serif"
+
+[server]
+headless = true
