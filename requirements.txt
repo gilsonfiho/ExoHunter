@@ -11,3 +11,7 @@ tensorflow>=2.16
 # Visualização
 matplotlib>=3.8
 seaborn>=0.13
+
+# Dashboard / interface
+streamlit>=1.36
+plotly>=5.22
