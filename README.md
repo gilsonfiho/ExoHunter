@@ -56,8 +56,24 @@ balanceado, `EarlyStopping` e `ReduceLROnPlateau`.
 | Precisão (confirmados) | 0.804 |
 | Precisão (falsos positivos) | 0.953 |
 
-Figuras geradas em `reports/figures/`: histórico de treino, matriz de
-confusão e curva ROC.
+### Gráficos
+
+**Histórico de treino** — evolução da perda e da AUC ao longo das épocas,
+em treino e validação (sem overfitting relevante, graças ao `EarlyStopping`):
+
+![Histórico de treino](docs/img/historico_treino.png)
+
+**Curva ROC** — capacidade de separar confirmados de falsos positivos no
+conjunto de teste (AUC = 0.952):
+
+![Curva ROC](docs/img/curva_roc.png)
+
+**Matriz de confusão** (teste):
+
+![Matriz de confusão](docs/img/matriz_confusao.png)
+
+> As figuras são regeradas a cada treino em `reports/figures/` (não
+> versionadas). As cópias em `docs/img/` são os instantâneos exibidos aqui.
 
 ## 📁 Estrutura
 
